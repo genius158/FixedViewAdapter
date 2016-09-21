@@ -1,4 +1,4 @@
-package com.yan.mylibrary;
+package com.yan.fixedviewadapter;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -23,23 +23,7 @@ import java.util.List;
 /**
  * Created by yan on 2016/6/12.
  * using this util can make that a few fixed views in a root viewGroup be using like listView;
- * <p>
- * <LinearLayout ...>
- * * <LinearLayout ...>
- * * * <TextView id="@id/tv .../>
- * * * <ImageView android:id="@+id/img" .../>
- * * </LinearLayout>
- * * <LinearLayout ...>
- * * * <TextView .../>
- * * * <ImageView  .../>
- * * </LinearLayout>
- * * <LinearLayout ...>
- * * * <TextView  .../>
- * * * <ImageView  .../>
- * * </LinearLayout>
- * </LinearLayout>
  */
-
 public abstract class FixedViewsAdapter<T> {
     private ViewGroup viewGroup;
     private View[] itemViewRoot;
@@ -84,7 +68,7 @@ public abstract class FixedViewsAdapter<T> {
 
 
     /**
-     * 元素相关设置 view item setting
+     * view item setting
      */
 
     public void setOnClickListener(View view, View.OnClickListener onClickListener) {
@@ -218,15 +202,15 @@ public abstract class FixedViewsAdapter<T> {
     }
 
     /**
-     * 界面相关设置 setting about view
+     *   setting about view
      * ----------------------------------------------------
      */
 
     /**
-     * 数据绑定 data bind
+     * data bind
      *
-     * @param view 返回界面元素 return view
-     * @param obj  返回需要绑定的数据 return data that need to bind
+     * @param view return view
+     * @param obj  return data that need to bind
      */
     public abstract void onBindViewHodler(View[] view, T obj);
 
@@ -253,7 +237,7 @@ public abstract class FixedViewsAdapter<T> {
     }
 
     /**
-     * 刷新数据 refresh data notify view
+     * refresh data notify view
      */
     public void notifyDataChange() {
         for (int i = 0; i < size; i++) {
@@ -283,6 +267,7 @@ public abstract class FixedViewsAdapter<T> {
 
 
     private int itemAnimationDuration = 400;
+
     public void setItemAnimationDuration(int itemAnimationDuration) {
         this.itemAnimationDuration = itemAnimationDuration;
     }
@@ -429,7 +414,7 @@ public abstract class FixedViewsAdapter<T> {
     }
 
     /**
-     * 布局解析  analyze view
+     * analyze view
      * --------------------------------------------
      */
     private View[] utilGetViews(ViewGroup viewGroup, int size, int viewId) {
